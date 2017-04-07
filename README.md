@@ -23,7 +23,7 @@ rails generate uploader Image
 # you can modify the config
 ```
 
-+ update pet.rb
++ model with validates:
 ```ruby
 class Pet < ApplicationRecord
     mount_uploader :image, ImageUploader
