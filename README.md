@@ -23,6 +23,22 @@ rails generate uploader Image
 # you can modify the config
 ```
 
++ update pet.rb
+```ruby
+class Pet < ApplicationRecord
+    mount_uploader :image, ImageUploader
+
+
+    validates_processing_of :image
+    validate :image_size_validation
+    
+    private
+    def image_size_validation
+        errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
+    end
+end
+```
+
 + modify html.erb part:
     + show part:
     ```ruby
