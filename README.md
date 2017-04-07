@@ -24,32 +24,34 @@ rails generate uploader Image
 ```
 
 + modify html.erb part:
-```ruby
-## old:
-<%= @pet.image %>
-## new:
-<%= image_tag @pet.image.thumb.url %>
-```
-```html
-<!--Old-->
-<div class="field">
-    <%= f.label :image %>
-    <%= f.file_text :image %>
-</div>
+    + show part:
+    ```ruby
+    ## old:
+    <%= @pet.image %>
+    ## new:
+    <%= image_tag @pet.image.thumb.url %>
+    ```
+    + upload part:
+    ```html
+    <!--Old-->
+    <div class="field">
+        <%= f.label :image %>
+        <%= f.file_text :image %>
+    </div>
 
-<!--New-->
-<div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <!--New-->
+    <div class="field">
+        <%= f.label :image %>
+        <%= f.file_field :image %>
 
 
-    <% if f.object.image? %>
-        <%= image_tag f.object.image.thumb.url %>
-        <%= f.label :remove_image %>
-        <%= f.check_box :remove_image %> 
-    <% end %>
-</div>
-```
+        <% if f.object.image? %>
+            <%= image_tag f.object.image.thumb.url %>
+            <%= f.label :remove_image %>
+            <%= f.check_box :remove_image %> 
+        <% end %>
+    </div>
+    ```
 
 ## resources:
 + https://code.tutsplus.com/tutorials/rails-image-upload-using-carrierwave-in-a-rails-app--cms-25183
