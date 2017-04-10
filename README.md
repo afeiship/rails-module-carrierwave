@@ -23,6 +23,11 @@ rails generate uploader Image
 # you can modify the config
 ```
 
++ First, uncomment the MiniMagick line. That should be line 7.
+```ruby
+include CarrierWave::MiniMagick
+```
+
 + model with validates:
 ```ruby
 class Pet < ApplicationRecord
